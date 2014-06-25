@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+Numero1<input type="text" id="txtN1" /><br />
+Numero2<input type="text" id="txtN2" /><br />
+<input type="button" id="btnMas" value="+" />
+<input type="button" id="btnMenos" value="-" />
+<input type="button" id="btnPor" value="*" />
+<input type="button" id="btnDividir" value="/" />
+<ul id="datos"></ul>
+</body>
+
+
+<script type="text/javascript">
+var procesar=function(op){
+	var n1=parseFloat(document.getElementById("txtN1").value);
+	var n2=parseFloat(document.getElementById("txtN2").value);
+	var res=0;
+	//tenemos dos alternativas: O bien el eval que podemos crear una cadena con la operacion y que la evalue
+	//o podemos meter un switch para saber la operacion
+	res=eval(n1+op+n2);
+	/*switch(op){
+	case "+":
+		res=n1+n2;
+		break;
+	case "-":
+		res=n1-n2;
+		break;
+		
+	case "/":
+		res=n1/n2;
+		break;
+		
+	case "*":
+		res=n1*n2;
+		break;
+	
+	}*/
+	
+	//Esto funciona con piezas, primero creamos las piezas del arbol por separado
+	//Despues las juntamos de abajo a arriba
+	var texto=document.createTextNode(n1+op+n2+"="+res);
+	var nodo=document.createElement("li");
+	nodo.appendChild(texto);
+	document.getElementById("datos").appendChild(nodo);
+};
+(function(){
+	
+	document.getElementById("btnMas").addEventListener("click", 
+		function(){
+		
+		procesar("+");
+		
+	}		
+	);
+	document.getElementById("btnMenos").addEventListener("click", 
+			function(){
+			procesar("-");
+			
+		}		
+		);
+	
+	document.getElementById("btnPor").addEventListener("click", 
+			function(){
+			procesar("*");
+			
+		}		
+		);
+
+document.getElementById("btnDividir").addEventListener("click", 
+		function(){
+		procesar("/");
+		
+	});		
+})();
+</script>
+</html>
