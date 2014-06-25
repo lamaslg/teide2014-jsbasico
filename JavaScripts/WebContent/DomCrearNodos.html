@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type="text" id="txtTexto" /><input type="button" value="Dale" id="btnDale" />
+<br />
+
+
+<ul id="datos">
+
+</ul>
+
+</body>
+<script type="text/javascript">
+	
+	function crearNodo(){
+		var texto=document.getElementById("txtTexto").value;
+		
+		var ele=document.createElement("li");
+		var txtNodo=document.createTextNode(texto);
+		ele.appendChild(txtNodo);
+		document.getElementById("datos").appendChild(ele);
+		
+		document.getElementById("txtTexto").value="";
+	}
+(function(){
+	document.getElementById("btnDale").addEventListener("click", crearNodo);
+	
+})();
+
+</script>
+</html>
