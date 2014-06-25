@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+var telef=new Array("Nokia","Apple","Motorola","Samsung","LG");
+telef=["Jiayu","Xiaomi","Huawei","Oppo","One+"];
+var tel2=["Lg","Nokia","Bq"];
+
+telef=[4];
+
+telef[0]="Sony";
+telef[1]="Motorola";
+telef[2]="Samsung";
+telef[3]="htc";
+telef.push("Xiaomi","Oppo","One+");
+telef.push("Apple");
+telef.pop();
+
+telef=telef.concat(tel2);
+
+for (var n = 0; n < telef.length; n++) {
+	document.write(telef[n]+"<br />");
+}
+
+var numero1 = 0;
+var numero2 = "pepe";
+if(isNaN(numero1/numero2)) {
+  alert("La división no está definida para los números indicados");
+} else {
+  alert("La división es igual a => " + numero1/numero2);
+}
+
+var num=3/9;
+
+document.write(num.toFixed(2));
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

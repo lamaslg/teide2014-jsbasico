@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="#" id="lnkBack">Atras</a>
+<a href="#" id="lnkIr">NBA</a>
+<a href="#" id="lnkRecarga">Recargar</a>
+<a href="#" id="lnkRes">Resolucion</a>
+<a href="#" id="lnkNav">Navegador</a>
+<a href="#" id="lnkOcultar">Donde estan?</a>
+<a href="#" id="lnkConfirmacion">Confirmar</a>
+<a href="#" id="lnkOcultar2">Se oculta?</a>
+
+
+</body>
+<script type="text/javascript">
+var ocultar=function(){
+	var enla=document.getElementsByTagName("a");
+	
+	for (var n = 0; n < enla.length; n++) {
+		enla[n].style.display="none";
+	}
+	
+	
+};
+var mostrar=function(){
+	var enla=document.getElementsByTagName("a");
+	
+	for (var n = 0; n < enla.length; n++) {
+		enla[n].style.display="block";
+	}
+	
+	
+};
+(function(){
+	
+	document.getElementById("lnkBack").addEventListener("click",	function(){
+		history.go(-2);
+		}, false);
+	
+	document.getElementById("lnkIr").addEventListener("click",	function(){
+		location.href="http://www.nba.com";
+		}, false);
+	document.getElementById("lnkRecarga").addEventListener("click",	function(){
+		location.reload();
+		}, false);
+	document.getElementById("lnkRes").addEventListener("click",	function(){
+		
+		alert(screen.width+"x"+screen.height);
+		
+		}, false);
+document.getElementById("lnkNav").addEventListener("click",	function(){
+		
+		alert(navigator.appName+" "+navigator.platform);
+		
+		}, false);
+document.getElementById("lnkOcultar").addEventListener("click",	function(){
+		
+		ocultar();
+	
+	
+	}, false);
+document.getElementById("lnkConfirmacion").addEventListener("click",	function(){
+	
+	var nombre=prompt("Como te llamas?", "Escribe tu nombre");
+	
+	var res=confirm(nombre+", Quieres cerrar la pagina?");
+	if(res)
+		self.close();
+	else{
+		
+		alert(nombre+", no hago nada");
+	}
+
+
+}, false);
+document.getElementById("lnkOcultar2").addEventListener("click",	function(){
+	
+	ocultar();
+	setTimeout(mostrar, 5000);
+
+
+}, false);
+})();
+
+</script>
+
+</html>

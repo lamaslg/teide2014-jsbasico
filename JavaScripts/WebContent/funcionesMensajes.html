@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function suma(datos){
+	var res=0;
+	
+	for (var i = 0; i < datos.length; i++) {
+		res+=datos[i];
+	}
+	return res;
+	
+}
+
+
+
+</script>
+
+</head>
+<body>
+<div id="escribir">
+esto es una capa
+</div>
+</body>
+<script type="text/javascript">
+(function(){
+	
+	document.write(suma([2,3,7,9,22,33]));
+	
+	document.onclick=function(){
+		var capa=document.getElementById("escribir");
+		capa.innerHTML=capa.innerHTML+"Hola le has ddo al asunto";
+		
+	};
+	
+	
+})();
+
+</script>
+</html>
