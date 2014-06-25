@@ -7,6 +7,7 @@
 <body>
 
 <input type="text" id="txtTexto" /><input type="button" value="Dale" id="btnDale" />
+<input type="button" value="Borrar Lista" id="btnBorrar" />
 <br />
 
 
@@ -27,9 +28,27 @@
 		
 		document.getElementById("txtTexto").value="";
 	}
+	function borrarLista(){
+		
+		var lista=document.getElementById("datos");
+		var hijos=lista.lastChild;
+		lista.removeChild(hijos);
+		
+		while(true){
+			var hijo=lista.firstChild;
+			if(hijo==undefined)
+				break;
+			lista.removeChild(hijo);
+			
+			
+		}
+		
+	//	lista.parentNode.removeChild(lista);
+		
+	}
 (function(){
 	document.getElementById("btnDale").addEventListener("click", crearNodo);
-	
+	document.getElementById("btnBorrar").addEventListener("click", borrarLista);
 })();
 
 </script>

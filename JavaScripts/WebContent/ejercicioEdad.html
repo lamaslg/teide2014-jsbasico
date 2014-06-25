@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+Nombre:<input type="text" id="txNom" />
+<br />
+Edad:<input type="text" id="txEda" />
+<br />
+<input type="button" id="btnEscribir" value="Escribir">
+
+<div id="resultado">
+
+</div>
+</body>
+<script type="text/javascript">
+	var procesar=function(){
+		
+		var edad=document.getElementById("txEda").value;
+		var nombre=document.getElementById("txNom").value;
+		var estilo="";
+		if(edad<20)
+			estilo="blue";
+		else if(edad<60)
+			estilo="green";
+		else
+			estilo="red";
+		
+		var ele=document.createTextNode(nombre+ " tienes "+edad+" años");
+		
+		var capa=document.getElementById("resultado");
+		capa.appendChild(ele);
+		capa.style.color=estilo;	
+	
+	};
+
+	(function(){
+		document.getElementById("btnEscribir").addEventListener("click", procesar);
+		
+		
+	})();
+</script>
+
+
+</html>
