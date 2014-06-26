@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="prueba" method="post">
+Nombre:<input type="text" name="txtNombre" id="txtNombre" />
+<br />
+Edad:<input type="text" name="txtEdad" id="txtEdad" />
+<br />
+Email:<input type="text" name="txtEmail" id="txtEmail" />
+<br />
+NIF/NIE: <input type="text" name="txtNif" id="txtNif" />
+<br />
+Estado civil: <input type="radio" name="rbEciv" id="rbEciv1" /> Casado
+<input type="radio" name="rbEciv" id="rbEciv2" /> Soltero
+<input type="radio" name="rbEciv" id="rbEciv3" /> Viudo
+<input type="radio" name="rbEciv" id="rbEciv4" /> Divorciado<br />
+
+<input type="button" id="btnEnviar" value="Enviar" />
+</form>
+</body>
+<script type="text/javascript">
+function validarNombre(nombre){
+	var patron=new RegExp("^[a-zA-Z\ ]{5,}$");
+	
+	return patron.test(nombre);
+}
+function validarEdad(edad){
+	if(isNaN(edad)){
+		return false;
+	}
+	
+	return (edad>18 && edad<99);
+		
+}
+function validarEmail(email){
+	
+	var patron=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
+	//patron=new RegExp(patron);
+	
+	return patron.test(email);
+	
+}
+function validarNif(nif){
+	
+	var patron=new RegExp("^([0-9]{8}[A-Z])|([XY][0-9]{7}[A-Z])$");
+	
+	return patron.test(nif);
+	
+}
+function validarEciv(){
+	var radios=document.getElementsByName("rbEciv");
+	
+	for (var i = 0; i < radios.length; i++) {
+		if(radios[i].checked)
+			return true;
+	}
+	
+	return false;
+	
+}
+function procesar(){
+	var res="";
+	
+	if(!validarNombre(document.getElementById("txtNombre").value))
+		res+="El formato del nombre es incorrecto<br />";
+	if(!validarEdad(document.getElementById("txtEdad").value))
+		res+="La edad es incorrecta<br />";
+	if(!validarEmail(document.getElementById("txtEmail").value))
+		res+="El formato del email es incorrecto<br />";
+	if(!validarNif(document.getElementById("txtNif").value))
+		res+="El formato del nif es incorrecto<br />";
+	if(!validarEciv())
+		res+="El estado civil es obligatorio<br />";
+		
+		if(res==""){
+			alert("todo esta bien");
+			
+		}
+		else{
+			
+			alert(res);
+		}
+	
+}
+(function(){
+	document.getElementById("btnEnviar").addEventListener("click", procesar);
+	
+	
+})();
+</script>
+
+
+</html>
